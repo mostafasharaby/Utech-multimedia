@@ -1,0 +1,39 @@
+<div class="flex flex-col md:flex-row items-center justify-between w-full h-screen bg-gray-800 p-10">
+  <!-- Left side - Text -->
+  <div class="w-full md:w-1/2 text-white p-6">
+    <h2 class="text-3xl font-bold mb-4 text-blue-500" >DENOISE</h2>
+    <div class="text-lg space-y-4">
+      <div>
+        <h3 class="font-semibold text-xl">New Denoiser (V2)</h3>
+        <p>
+          With much better quality than Version 1, the new Denoiser uses AI to keep the important details while enhancing the overall result.
+        </p>
+        <p>
+          It reaches its highest performance with our new render engine, making it the perfect pipeline for faster and more accurate results.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right side - Image -->
+  <div class="w-full md:w-1/2 m-6 md:mb-0">
+    <div class="image-comparison-container">
+      <div class="image-wrapper">
+        <img src="/Denoise_Before.png" alt="Before Image" class="before-image rounded">
+        <img src="/Denoise_After.png" alt="After Image" class="after-image rounded" [style.clip-path]="clipPath">
+        <div class="slider" [style.left.%]="sliderValue" (mousedown)="startSlide($event)"></div>
+      </div>
+    </div>
+    <input
+      type="range"
+      min="0"
+      max="100"
+      [(ngModel)]="sliderValue"
+      class="image-slider"
+      (input)="onSliderInput($event)"
+    />
+    
+    
+   
+  </div>
+</div>

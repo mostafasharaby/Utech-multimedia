@@ -1,0 +1,24 @@
+<div class="flex flex-col md:flex-row items-center justify-between w-full h-screen bg-gray-800 p-10">
+  <div class="w-full md:w-1/2 m-6 md:mb-0">
+    <div class="relative overflow-hidden rounded-lg">
+      <img src="Upscale_Before.png" alt="Upscale_Before" class="w-full h-full object-cover rounded-lg"
+        (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()" #zoomImage />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 text-white p-6">
+    <h2 class="text-3xl font-helvetica font-bold mb-4 text-blue-500">UPSCALE</h2>
+    <div class="text-lg space-y-4">
+      <div>
+        <h3 class="font-helvetica font-bold text-xl">Upscaling your image up to 4X</h3>
+        <p class="font-helvetica">
+          while keeping details, sharpness, levels, and colors intact.
+        </p>
+        <p class="font-helvetica">
+          In the premium version, available with the render engine purchase, you can upscale your images up to 6X for
+          even better quality.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

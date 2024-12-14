@@ -1,0 +1,41 @@
+<div class="flex flex-col md:flex-row items-center justify-between w-full h-screen bg-gray-800 p-10">
+  <!-- Left side - Text -->
+  <div class="w-full md:w-1/2 text-white p-6">
+    <h2 class="text-3xl font-bold mb-4 text-blue-500">DETAILS</h2>
+    <div class="text-lg space-y-4">
+      <div>
+        <h3 class="font-semibold text-xl">Adding Extra Details</h3>
+        <p>
+          Add extra details to your images while keeping the high-quality imagery intact.
+        </p>
+        <p>
+          Exposure and high lighting areas are kept clean, ensuring natural results.
+        </p>
+        <p>
+          Multiple versions are available, so you can apply them to your specific needs.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right side - Image -->
+  <div class="w-full md:w-1/2 m-6 md:mb-0">
+    <!-- <img src="Details_Before.png" alt="Details_Before" class="w-full h-full object-cover rounded-lg" /> -->
+    <div class="image-comparison-container">
+      <div class="image-wrapper">
+        <img src="/Details_Before2.png" alt="Details_Before" class="before-image rounded">
+        <img src="/Details_After2.png" alt="Details_After" class="after-image rounded" [style.clip-path]="clipPath">
+        <div class="slider" [style.left.%]="sliderValue" (mousedown)="startSlide($event)"></div>
+      </div>
+    </div>
+    <input
+      type="range"
+      min="0"
+      max="100"
+      [(ngModel)]="sliderValue"
+      class="image-slider"
+      (input)="onSliderInput($event)"
+    />
+    
+  </div>
+</div>
