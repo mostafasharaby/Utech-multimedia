@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js/auto';
+import { ReloadService } from '../../../shared/reload.service';
 @Component({
   selector: 'app-RENDER',
   templateUrl: './RENDER.component.html',
@@ -7,12 +8,13 @@ import { Chart } from 'chart.js/auto';
 })
 export class RENDERComponent implements OnInit {
 
-  constructor() { }
+    constructor( private reloadService :ReloadService) { }
+    ngAfterViewInit(): void {   
+      this.reloadService.initializeLoader();
+    }
+  
 
   ngOnInit() {
-  }
-  ngAfterViewInit(): void {
-    this.initializeCharts();
   }
   initializeCharts() {
     this.createSalesChart();

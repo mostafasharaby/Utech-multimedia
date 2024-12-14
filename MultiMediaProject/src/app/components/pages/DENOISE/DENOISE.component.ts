@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { SliderService } from '../../../shared/Slider.service';
+import { ReloadService } from '../../../shared/reload.service';
 
 @Component({
   selector: 'app-DENOISE',
@@ -8,8 +9,10 @@ import { SliderService } from '../../../shared/Slider.service';
 })
 export class DENOISEComponent implements OnInit {
 
-  constructor(private sliderService :SliderService) { }
-
+  constructor(private sliderService: SliderService, private reloadService: ReloadService) { }
+  ngAfterViewInit(): void {
+    this.reloadService.initializeLoader();
+  }
   ngOnInit() {
   }
 
