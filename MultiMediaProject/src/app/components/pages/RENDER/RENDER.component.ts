@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { ReloadService } from '../../../shared/reload.service';
 @Component({
@@ -6,13 +6,13 @@ import { ReloadService } from '../../../shared/reload.service';
   templateUrl: './RENDER.component.html',
   styleUrls: ['./RENDER.component.css']
 })
-export class RENDERComponent implements OnInit {
+export class RENDERComponent implements OnInit , AfterViewInit {
 
-    constructor( private reloadService :ReloadService) { }
-    ngAfterViewInit(): void {   
-      this.reloadService.initializeLoader();
-    }
-  
+  constructor(private reloadService: ReloadService) { }
+  ngAfterViewInit(): void {
+    this.reloadService.initializeLoader();
+    this.initializeCharts();
+  }
 
   ngOnInit() {
   }
@@ -21,7 +21,10 @@ export class RENDERComponent implements OnInit {
     this.createPerformanceChart();
   }
 
-// fdfddfd
+  chartOptions = {
+    responsive: true,
+  };
+
 
   createSalesChart() {
     const ctx = (document.getElementById('salesChart') as HTMLCanvasElement).getContext('2d');
@@ -33,7 +36,7 @@ export class RENDERComponent implements OnInit {
           datasets: [{
             label: 'Sales',
             data: [65, 59, 80, 81, 56, 55],
-            borderColor: 'rgba(75, 192, 192, 1)',
+            borderColor: 'rgb(234, 250, 250)',
             borderWidth: 1,
             fill: false
           }]
