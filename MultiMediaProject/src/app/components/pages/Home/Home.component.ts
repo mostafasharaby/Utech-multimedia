@@ -15,5 +15,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+  isVideoVisible = false;
+
+  showVideo(): void {
+    this.isVideoVisible = true;
+  }
 
 }

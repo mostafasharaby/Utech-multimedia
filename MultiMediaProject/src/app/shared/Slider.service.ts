@@ -20,7 +20,7 @@ sliderValue: number = 50;
 
   startSlide(event: MouseEvent): void {
     this.isSliding = true;
-    event.preventDefault(); // Prevent default behavior
+    event.preventDefault(); 
   }
 
   @HostListener('window:mouseup')
